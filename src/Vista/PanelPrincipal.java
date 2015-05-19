@@ -38,7 +38,7 @@ public class PanelPrincipal extends JPanel {
 		
 		lblUsuario = new JLabel("Usuario: ");
 		txtUsuario = new JTextField(13);
-		lblContrasena = new JLabel("Contraseña: ");
+		lblContrasena = new JLabel("Contraseï¿½a: ");
 		pssContrasena = new JPasswordField(20);
 		imagen = new ImageIcon(getClass().getResource("../imagenes/libro.png"));
 		image = new JLabel(imagen);
@@ -179,7 +179,7 @@ public class PanelPrincipal extends JPanel {
 	}
 
 	/**
-	 * Método que sustituye el valor de txtUsuario
+	 * Mï¿½todo que sustituye el valor de txtUsuario
 	 * @param txtUsuario valor original ingresado en el JTextField
 	 */
 	public void setTxtUsuario(String txtUsuario) {
@@ -187,19 +187,19 @@ public class PanelPrincipal extends JPanel {
 	}
 
 	/**
-	 * Método que retorna la Contraseña del Cliente
-	 * @return la contraseña ingresada en el JTextField
+	 * Mï¿½todo que retorna la Contraseï¿½a del Cliente
+	 * @return la contraseï¿½a ingresada en el JTextField
 	 */
-	public String getTxtContraseña() {
+	public String getTxtContrasena() {
 		return pssContrasena.getText();
 	}
 
 	/**
-	 * Método para sustituir el valor de txtContraseña
-	 * @param txtContraseña valor original ingresado en el JTextField
+	 * Mï¿½todo para sustituir el valor de txtContraseï¿½a
+	 * @param txtContraseï¿½a valor original ingresado en el JTextField
 	 */
-	public void setTxtContraseña(String txtContraseña) {
-		String c = new String(txtContraseña);
+	public void setTxtContrasena(String txtContrasena) {
+		String c = new String(txtContrasena);
 		this.pssContrasena.setText(c);
 	}
 
@@ -214,7 +214,7 @@ public class PanelPrincipal extends JPanel {
 	}
 
 	/**
-	 * Método que retorna el Rol del Cliente
+	 * Mï¿½todo que retorna el Rol del Cliente
 	 * @return el rol seleccionado en el Chioce Rol
 	 */
 

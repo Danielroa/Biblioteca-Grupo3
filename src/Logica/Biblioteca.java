@@ -20,7 +20,7 @@ public class Biblioteca {
 	private static Biblioteca instance;
 
 	/**
-	 * Método que se encarga de que solo se cree UNA sola clase biblioteca.
+	 * Mï¿½todo que se encarga de que solo se cree UNA sola clase biblioteca.
 	 * @return una instancia unica de la clase biblioteca.
 	 */
 	public static Biblioteca getInstance() {
@@ -30,7 +30,7 @@ public class Biblioteca {
 		return instance;
 	}
 
-	//Hacer la contraseña
+	//Hacer la contraseï¿½a
 
 	//LOGIN
 	public boolean login (  String usuario, String contrasena){		
@@ -77,8 +77,8 @@ public class Biblioteca {
 	}
 
 	//editar  cliente
-	public void editarCliente(String id, String nombre , String contraseña) {
-		inventarioCliente.editarCliente(id,nombre, contraseña );
+	public void editarCliente(String id, String nombre , String contrasena) {
+		inventarioCliente.editarCliente(id,nombre, contrasena );
 	}
 
 	//metodo agregar libro//
