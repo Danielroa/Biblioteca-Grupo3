@@ -34,6 +34,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     private JLabel lblUser;
     private JLabel lblPassword;
 
+    private JButton btnBuscar;
     private JButton btnAceptar;
    
     private JButton btnVerListaClientes;
@@ -47,11 +48,6 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
 
 
     ///////////////////////////////////////////////////
-    private Date fechaActual;
-    private Date fechaFinal;
-
-    private String fa;
-    private String ff;
 
     Biblioteca e = Biblioteca.getInstance();
 
@@ -59,15 +55,6 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
      * Constructor de la Clase PanelEditarCliente, donde se modifica su contenido
      */
     public PanelEditarCliente() {
-
-        fechaActual = Calendar.getInstance().getTime();
-
-        Calendar f = Calendar.getInstance();
-        f.add(Calendar.YEAR, +1);
-        fechaFinal = f.getTime();
-
-        fa = fechaActual.toString();
-        ff = fechaFinal.toString();
 
         //TIPOS DE LETRAS REUTILIZABLES
         Font osb = new Font("Open Sans", Font.BOLD, 15);
@@ -105,7 +92,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         lblNombre.setForeground(marron);
         lblNombre.setFont(os);
 
-        txtNombre = new JTextField(15);
+        txtNombre = new JTextField();
         txtNombre.setEnabled(false);
         txtNombre.setFont(os);
 
@@ -144,6 +131,14 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         txtPassword = new JTextField(15);
         txtPassword.setEnabled(false);
         txtPassword.setFont(os);
+        
+        btnBuscar = new JButton ("Buscar");
+        btnBuscar.setEnabled(true);
+        btnBuscar.addActionListener(this);
+        btnBuscar.setForeground(amarillo);
+        btnBuscar.setBackground(marron);
+        btnBuscar.setFont(osb);
+        
         btnAceptar = new JButton("Aceptar");
         btnAceptar.setEnabled(false);
         btnAceptar.addActionListener(this);
@@ -284,6 +279,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         gbc1.fill = GridBagConstraints.BOTH;
         gbc1.anchor = GridBagConstraints.WEST;
         panelDatos.add(txtPassword, gbc1);
+        
         gbc1.gridx = 0;
         gbc1.gridy = 6;
         gbc1.gridwidth = 1;
@@ -321,15 +317,26 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         gbc2.fill = GridBagConstraints.BOTH;
         gbc2.anchor = GridBagConstraints.WEST;
         panelDB.add(btnAceptar, gbc2);
-
+        //Boton Buscar
+        gbc2.gridx = 1;
+        gbc2.gridy = 1;
+        gbc2.gridwidth = 3;
+        gbc2.gridheight = 1;
+        gbc2.weightx = 0.0;
+        gbc2.weighty = 1.0;
+        gbc2.insets = new Insets(3, 3, 3, 3);
+        gbc2.fill = GridBagConstraints.BOTH;
+        gbc2.anchor = GridBagConstraints.NORTH;
+        panelDB.add(btnBuscar, gbc2);
+     
         panelDB.setBackground(null);
-
+        
         this.add(panelBusqueda);
         this.add(lblIngreseNA);
         this.add(panelDB);
         this.setBackground(new Color(255, 194, 92));
-
-    }
+        
+      }
 
     /**
      * Metodo que retorna el ID del cliente ingresado para buscar
@@ -412,16 +419,16 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     }
     
     /**
-     * Metodo que retorna la Contraseña del Cliente
-     * @return Contraseña ingresada en el JTextField Contraseña
+     * Metodo que retorna la Contraseï¿½a del Cliente
+     * @return Contraseï¿½a ingresada en el JTextField Contraseï¿½a
      */
     public String getTxtPassword() {
         return txtPassword.getText();
     }
 
     /**
-     * Metodo que sustituye la Contraseña del Cliente
-     * @param txtPassword valor original de la Contraseña del Cliente
+     * Metodo que sustituye la Contraseï¿½a del Cliente
+     * @param txtPassword valor original de la Contraseï¿½a del Cliente
      */
     public void setTxtPassword(String txtPassword) {
         this.txtPassword.setText(txtPassword);

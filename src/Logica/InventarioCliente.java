@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class InventarioCliente {
-
+	
     private ArrayList<UsuarioCliente> listaCliente;
 
     public InventarioCliente(){
@@ -19,7 +19,10 @@ public class InventarioCliente {
     public  void agregarCliente(String nombre,String apellido,String id ,String usuario,String contrasena){
             UsuarioCliente cliente = new UsuarioCliente(nombre,apellido,id ,usuario,contrasena);
             listaCliente.add(cliente);
-        }
+            //agregar array to String
+            
+           
+    }
 
     //Mostrar lista ClienteS que agrego.
     public  String mostrarLista() throws Exception{
@@ -28,7 +31,7 @@ public class InventarioCliente {
             System.out.println("La lista esta vacia"+listaCliente.get(i).getNombre());
         }else{
             for ( i = 0; i < listaCliente.size(); i++) {
-            	System.out.println("tamaño: " + listaCliente.size());
+            	System.out.println("tamaï¿½o: " + listaCliente.size());
             	 System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );}
        
         
@@ -58,7 +61,7 @@ public class InventarioCliente {
 
     //ELIMINAR Cliente
     public void eliminarCliente (String id) throws Exception {
-        System.out.println("1");
+    	System.out.println("1");
         boolean pos=existeCliente(id);
 
 
@@ -106,6 +109,7 @@ public class InventarioCliente {
     	for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
             if(id.equals(listaCliente.get(i).getId()))    {
             	encontro = true;
+        
             	
         listaCliente.get(i).setUsuario(nombre);
         listaCliente.get(i).setContrasena(contrasenia);
