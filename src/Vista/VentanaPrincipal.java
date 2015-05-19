@@ -37,7 +37,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 
 		setTitle("BIBLIOTECA YAMANTAKA");
-		setSize(700, 210);
+		setSize(1000, 210);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon(getClass().getResource("../imagenes/libro.png")).getImage());
