@@ -35,7 +35,8 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     private JLabel lblPassword;
 
     private JButton btnAceptar;
-   
+    private JButton btnBuscar;
+    
     private JButton btnVerListaClientes;
 
     private JTextField txtBusqueda;
@@ -46,12 +47,6 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     private JTextField txtPassword;
 
 
-    ///////////////////////////////////////////////////
-    private Date fechaActual;
-    private Date fechaFinal;
-
-    private String fa;
-    private String ff;
 
     Biblioteca e = Biblioteca.getInstance();
 
@@ -60,14 +55,6 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
      */
     public PanelEditarCliente() {
 
-        fechaActual = Calendar.getInstance().getTime();
-
-        Calendar f = Calendar.getInstance();
-        f.add(Calendar.YEAR, +1);
-        fechaFinal = f.getTime();
-
-        fa = fechaActual.toString();
-        ff = fechaFinal.toString();
 
         //TIPOS DE LETRAS REUTILIZABLES
         Font osb = new Font("Open Sans", Font.BOLD, 15);
@@ -427,12 +414,13 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         this.txtPassword.setText(txtPassword);
     }
 
-    //ACTION PERFORMED
-    /**
-     * Metodo que se encarga de capturar los eventos que ocurran en el JPanel
-     */
+    
     public void actionPerformed(ActionEvent evento) {
 
+    	if(evento.getSource()==btnBuscar){
+    		
+    	}
+    	
          }
 
 }

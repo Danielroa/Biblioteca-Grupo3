@@ -29,9 +29,6 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	private JButton btnIngresar;
 	private JButton btnSalir;
 	private JPanel panelBotones;
-
-
-
 	public VentanaPrincipal (){
 
 
@@ -88,35 +85,26 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 		Biblioteca e = Biblioteca.getInstance();
 		UsuarioAdministrador u = new UsuarioAdministrador();
-
-
-
-
 		if(evento.getSource()==btnIngresar && panel.getRol().getSelectedItem().equals("ADMINISTRADOR") && panel.getTxtUsuario().equals("Daniel") && panel.getTxtContrasena().equals("Daniel")){
 			VentanaAdministrador ventanaAdmin = new VentanaAdministrador (this, true);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 			// remueve la ventana anterior
 			dispose();
-
 		}
-
 		else if(evento.getSource()==btnIngresar &&panel.getRol().getSelectedItem().equals("CLIENTE") && panel.getTxtUsuario().equals("Roa") && panel.getTxtContrasena().equals("Roa")){
 			VentanaCliente ventanaCliente = new VentanaCliente (this,true);
 			ventanaCliente.setVisible(true);
 			dispose();
 		}
-
 		else if (evento.getSource() == btnSalir) {
 			JOptionPane.showMessageDialog(null, "GRACIAS POR SU VISITA",
 					"WARNING_MESSAGE", JOptionPane.WARNING_MESSAGE);
-
 			System.exit(0);			
 		}
 		else if   (evento.getSource() == btnIngresar && e.login( panel.getTxtUsuario(), panel.getTxtContrasena()) == false){
 			JOptionPane.showMessageDialog(null, "Usuario invalido o contrase�a invalida",
 					"WARNING_MESSAGE", JOptionPane.WARNING_MESSAGE);}
 	}
-
 	public PanelPrincipal getPanel() {
 		return panel;
 	}
