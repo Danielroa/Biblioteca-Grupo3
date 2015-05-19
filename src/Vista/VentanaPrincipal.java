@@ -7,10 +7,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -96,7 +92,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 
 
-		if(evento.getSource()==btnIngresar && panel.getRol().getSelectedItem().equals("ADMINISTRADOR") && panel.getTxtUsuario().equals("Daniel") && panel.getTxtContraseña().equals("Daniel")){
+		if(evento.getSource()==btnIngresar && panel.getRol().getSelectedItem().equals("ADMINISTRADOR") && panel.getTxtUsuario().equals("Daniel") && panel.getTxtContrasena().equals("Daniel")){
 			VentanaAdministrador ventanaAdmin = new VentanaAdministrador (this, true);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
 			// remueve la ventana anterior
@@ -104,7 +100,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 		}
 
-		else if(evento.getSource()==btnIngresar &&panel.getRol().getSelectedItem().equals("CLIENTE") && panel.getTxtUsuario().equals("Roa") && panel.getTxtContraseña().equals("Roa")){
+		else if(evento.getSource()==btnIngresar &&panel.getRol().getSelectedItem().equals("CLIENTE") && panel.getTxtUsuario().equals("Roa") && panel.getTxtContrasena().equals("Roa")){
 			VentanaCliente ventanaCliente = new VentanaCliente (this,true);
 			ventanaCliente.setVisible(true);
 			dispose();
@@ -116,8 +112,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 			System.exit(0);			
 		}
-		else if   (evento.getSource() == btnIngresar && e.login( panel.getTxtUsuario(), panel.getTxtContraseña()) == false){
-			JOptionPane.showMessageDialog(null, "Usuario invalido o contraseña invalida",
+		else if   (evento.getSource() == btnIngresar && e.login( panel.getTxtUsuario(), panel.getTxtContrasena()) == false){
+			JOptionPane.showMessageDialog(null, "Usuario invalido o contraseï¿½a invalida",
 					"WARNING_MESSAGE", JOptionPane.WARNING_MESSAGE);}
 	}
 
@@ -185,9 +181,9 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 
 
-	public boolean Login( String usuario, String Contraseña) {
+	public boolean Login( String usuario, String Contrasena) {
 		Biblioteca biblioteca = Biblioteca.getInstance();
-		return biblioteca.login( usuario, Contraseña);
+		return biblioteca.login( usuario, Contrasena);
 	}
 
 
