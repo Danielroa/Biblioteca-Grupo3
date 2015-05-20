@@ -3,8 +3,8 @@ package Logica;
 import java.util.ArrayList;
 
 public class Biblioteca {
-	private InventarioCliente inventarioCliente;
-	private 	InventarioLibro inventarioLibro;
+	private static InventarioCliente inventarioCliente;
+	private InventarioLibro inventarioLibro;
 	private UsuariosSistema usuariosSistema;
 
 
@@ -37,14 +37,8 @@ public class Biblioteca {
 		return usuariosSistema.login(usuario, contrasena);
 	}
 
-
-
-
-
 	public void agregarCliente(String nombre, String apellido, String id, String usuario, String contrasena) throws Exception{
 		inventarioCliente.agregarCliente(nombre, apellido, id, usuario, contrasena);
-
-
 	}
 	//mostrar lista cliente
 	public void  mostrarLista() throws Exception{
@@ -55,7 +49,7 @@ public class Biblioteca {
 		inventarioLibro.mostrarListaLibro();
 	}
 	//Buscar cliente
-	public boolean buscarCliente(String id) throws Exception {
+	public static boolean buscarCliente(String id) throws Exception {
 		return inventarioCliente.existeCliente(id);
 	}
 	//Calcular posicion
@@ -143,19 +137,3 @@ public class Biblioteca {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,24 +2,15 @@ package Vista;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.GridLayout;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-
-import Logica.*;
 
 import javax.swing.*;
-import javax.swing.plaf.basic.BasicBorders.RadioButtonBorder;
 
-import org.w3c.dom.ls.LSInput;
-
-import Logica.Biblioteca;
+import Logica.*;
 
 /**
  * 
@@ -28,7 +19,11 @@ import Logica.Biblioteca;
  */
 public class PanelEditarCliente extends JPanel implements ActionListener {
 
-    private JLabel lblNombre;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblNombre;
     private JLabel lblApellido;
     private JLabel lblId;
     private JLabel lblUser;
@@ -37,8 +32,6 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     private JButton btnBuscar;
     private JButton btnAceptar;
    
-    private JButton btnVerListaClientes;
-
     private JTextField txtBusqueda;
     private JTextField txtNombre;
     private JTextField txtApellido;
@@ -140,7 +133,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         btnBuscar.setFont(osb);
         
         btnAceptar = new JButton("Aceptar");
-        btnAceptar.setEnabled(false);
+        btnAceptar.setEnabled(true);
         btnAceptar.addActionListener(this);
         btnAceptar.setForeground(amarillo);
         btnAceptar.setBackground(marron);
@@ -320,7 +313,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         //Boton Buscar
         gbc2.gridx = 1;
         gbc2.gridy = 1;
-        gbc2.gridwidth = 3;
+        gbc2.gridwidth = 1;
         gbc2.gridheight = 1;
         gbc2.weightx = 0.0;
         gbc2.weighty = 1.0;
@@ -338,21 +331,7 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
         
       }
 
-    /**
-     * Metodo que retorna el ID del cliente ingresado para buscar
-     * @return el ID ingresado en el JTextField
-     */
-    public String getTxtbusqueda() {
-        return txtBusqueda.getText();
-    }
-
-    /**
-     * Metodo que sustituye el valor del campo de busqueda
-     * @param txtbusqueda valor original ingresado en el JTextField de Busqueda
-     */
-    public void setTxtbusqueda(String txtbusqueda) {
-        this.txtBusqueda.setText(txtbusqueda);
-    }
+    
     
     /**
      * Metodo que retorna el nombre del Cliente
@@ -433,13 +412,32 @@ public class PanelEditarCliente extends JPanel implements ActionListener {
     public void setTxtPassword(String txtPassword) {
         this.txtPassword.setText(txtPassword);
     }
+    
+    /**
+     * Metodo que retorna el ID del cliente ingresado para buscar
+     * @return el ID ingresado en el JTextField
+     */
+    public String getTxtbusqueda() {
+        return txtBusqueda.getText();
+    }
+
+    /**
+     * Metodo que sustituye el valor del campo de busqueda
+     * @param txtbusqueda valor original ingresado en el JTextField de Busqueda
+     */
+    public void setTxtbusqueda(String txtbusqueda) {
+        this.txtBusqueda.setText(txtbusqueda);
+    }
+
 
     //ACTION PERFORMED
     /**
      * Metodo que se encarga de capturar los eventos que ocurran en el JPanel
      */
-    public void actionPerformed(ActionEvent evento) {
-
-         }
-
+    public void actionPerformed(ActionEvent btnBuscar) {
+			System.out.println(txtBusqueda.getText()); //imprime en consola el texto que se va a buscar
+			//Biblioteca.buscarCliente(txtBusqueda.getText());
+			
+			
+    }
 }

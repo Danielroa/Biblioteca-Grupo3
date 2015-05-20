@@ -45,18 +45,14 @@ public class InventarioCliente {
 
         boolean encontro = false;
         for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
-        	 System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
+        	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
              
         	if(id.equals(listaCliente.get(i).getId()))    {
                 encontro = true;
 
             }
-
-
         }
-
         return encontro;
-
     }
 
     //ELIMINAR Cliente
@@ -68,9 +64,7 @@ public class InventarioCliente {
             for (int i = 0; i < listaCliente.size(); i++) {
                 if(id.equals(listaCliente.get(i).getId())){
                     listaCliente.remove(i);
-
                 }
-                
         }
     }
 
@@ -82,16 +76,14 @@ public class InventarioCliente {
         boolean encontro =false;
         for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
             if(id.equals(listaCliente.get(i).getId())){
-            	
             	encontro = true;
- 
-            	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );}
-            
-                   }
+            	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
+            	}
+            }
         return Cliente;
-
     }
-    //    //CALCULAR POSICION
+    
+    //CALCULAR POSICION
     public int calcularPosicion(String id) {
         boolean encontro = false;
         int pos = -1;
