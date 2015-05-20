@@ -1,7 +1,5 @@
 package Logica;
 
-import java.util.ArrayList;
-
 public class Biblioteca {
 	private static InventarioCliente inventarioCliente;
 	private InventarioLibro inventarioLibro;
@@ -34,7 +32,7 @@ public class Biblioteca {
 
 	//LOGIN
 	public boolean login (  String usuario, String contrasena){		
-		return usuariosSistema.login(usuario, contrasena);
+		return UsuariosSistema.login(usuario, contrasena);
 	}
 
 	public void agregarCliente(String nombre, String apellido, String id, String usuario, String contrasena) throws Exception{
