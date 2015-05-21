@@ -29,7 +29,7 @@ public class PanelAgregarCliente extends JPanel implements ActionListener {
 	private JLabel lblNombre;
 	private JLabel lblApellido;
 	private JLabel lblId;
-private JLabel lblNombreUsuario;
+	private JLabel lblNombreUsuario;
 	private JLabel lblPassword;
 
 	private JTextField txtNombre;
