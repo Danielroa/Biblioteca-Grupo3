@@ -2,40 +2,39 @@ package Logica;
 
 import java.util.ArrayList;
 
-
 public class InventarioCliente {
 	
     private ArrayList<UsuarioCliente> listaCliente;
 
     public InventarioCliente(){
-
-    	
         listaCliente = new ArrayList<UsuarioCliente>();
-
     }
-
+    
     //Agregar Cliente
-
     public  void agregarCliente(String nombre,String apellido,String id ,String usuario,String contrasena){
             UsuarioCliente cliente = new UsuarioCliente(nombre,apellido,id ,usuario,contrasena);
             listaCliente.add(cliente);
+<<<<<<< HEAD
           
+=======
+            //agregar array to String
+>>>>>>> 60f975e9e1b70438853e7271208d10db1c42bda3
     }
 
-    //Mostrar lista ClienteS que agrego.
+    
+    //Mostrar lista Cliente que agrego.
     public  String mostrarLista() throws Exception{
       for(int i=0;i<listaCliente.size();i++)
     	if (listaCliente.get(0) == null){
             System.out.println("La lista esta vacia"+listaCliente.get(i).getNombre());
-        }else{
+        }
+    	else{
             for ( i = 0; i < listaCliente.size(); i++) {
             	System.out.println("tama�o: " + listaCliente.size());
-            	 System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );}
-       
-        
+            	 System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
+            	 } 
         }
 	return listaCliente.toString();
-      
     }
 
     //BUSCAR Cliente//
@@ -43,18 +42,13 @@ public class InventarioCliente {
 
         boolean encontro = false;
         for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
-        	 System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
-             
+        	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
+        	
         	if(id.equals(listaCliente.get(i).getId()))    {
                 encontro = true;
-
             }
-
-
         }
-
         return encontro;
-
     }
 
     //ELIMINAR Cliente
@@ -62,34 +56,28 @@ public class InventarioCliente {
     	System.out.println("1");
         boolean pos=existeCliente(id);
 
-
             for (int i = 0; i < listaCliente.size(); i++) {
                 if(id.equals(listaCliente.get(i).getId())){
                     listaCliente.remove(i);
-
                 }
-                
         }
     }
 
     //Consultar Cliente
-
     public UsuarioCliente consultarCliente(String id) throws Exception{
         UsuarioCliente Cliente = listaCliente.get(this.calcularPosicion(id));
 
         boolean encontro =false;
         for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
             if(id.equals(listaCliente.get(i).getId())){
-            	
             	encontro = true;
- 
-            	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );}
-            
-                   }
+            	System.out.println(listaCliente.get(i).getNombre()+""+listaCliente.get(i).getApellido() + " " + listaCliente.get(i).getId() + " " + " " + listaCliente.get(i).getUsuario() + " " + listaCliente.get(i).getContrasena() );
+            	}
+            }
         return Cliente;
-
     }
-    //    //CALCULAR POSICION
+    
+    //CALCULAR POSICION
     public int calcularPosicion(String id) {
         boolean encontro = false;
         int pos = -1;
@@ -107,26 +95,22 @@ public class InventarioCliente {
     	for (int i = 0; (i < listaCliente.size() && !encontro); i++) {
             if(id.equals(listaCliente.get(i).getId()))    {
             	encontro = true;
-        
-            	
         listaCliente.get(i).setUsuario(nombre);
         listaCliente.get(i).setContrasena(contrasenia);
-              
+        //Se agrega el resto de datos como nombre y apellido?
+        }
             }
-    	}}
+    	}
 
-    
     //total clientes//
     public int totalClientes(){
     	
     	return listaCliente.size();
     
     }
-	public String toString(){
-		
+	public String toString(){		
 		return "" +listaCliente;
 	}
-
 
     public ArrayList<UsuarioCliente> getListaCliente() {
         return listaCliente;
