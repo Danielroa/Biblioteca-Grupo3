@@ -27,7 +27,7 @@ import Logica.Biblioteca;
 public class PanelAdministrador extends JPanel implements ActionListener {
 
 	private JLabel lbli, lbln, image;
-	private JButton btnAgregarCliente, btnEditarCliente, btnEliminarCliente , btnAgregarLibro,  btnEliminarLibro, btnEditarLibro;
+	private JButton btnAgregarCliente, btnEditarCliente, btnEliminarCliente , btnAgregarLibro,  btnEliminarLibro, btnEditarLibro ,btnListaCliente;
 
 	Biblioteca e = Biblioteca.getInstance();
 
@@ -35,7 +35,6 @@ public class PanelAdministrador extends JPanel implements ActionListener {
 	 * Constructor de la Clase PanelDirectorGeneral, donde se modifica su contenido
 	 */
 	public PanelAdministrador() {
-
 		//LOGO YAMANTAKA
 		JLabel Logo = new JLabel(new ImageIcon(getClass().getResource("../imagenes/admin.png")));
 
@@ -89,12 +88,23 @@ public class PanelAdministrador extends JPanel implements ActionListener {
 		btnEliminarLibro.setBackground(null);
 		btnEliminarLibro.setBorderPainted(false);
 
+
+		btnListaCliente = new JButton("Eliminar Libro");
+		btnListaCliente.addActionListener(this);
+		ImageIcon iconListaCliente = new ImageIcon(getClass().getResource("../Imagenes/busqueda.png"));
+		ImageIcon iEscalaListaCliente= new ImageIcon(iconEliminarLibro.getImage().getScaledInstance(70, 105, java.awt.Image.SCALE_DEFAULT));
+		btnListaCliente = new JButton(iconListaCliente);
+		btnListaCliente.addActionListener(this);
+		btnListaCliente.setBackground(null);
+		btnListaCliente.setBorderPainted(false);
+
 		//Sub-Panel
 		JPanel panelDatos = new JPanel();
 
 		//CAMBIO DE CONFIGURACION DE DISE�O DEL PANEL
 		panelDatos.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
+
 
 		gbc.gridx = 0;
 		gbc.gridy = 0;
@@ -165,6 +175,21 @@ public class PanelAdministrador extends JPanel implements ActionListener {
 		gbc.anchor = GridBagConstraints.WEST;
 		panelDatos.add(btnEditarLibro, gbc);
 
+		gbc.gridx =1;
+		gbc.gridy = 1;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.insets = new Insets(3, 3, 3, 3);
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.WEST;
+		panelDatos.add(btnListaCliente, gbc);
+
+		
+		
+		
+		
 		//FONDO TRANSPARENTE AL PANEL DATOS
 		panelDatos.setBackground(null);
 
@@ -211,20 +236,26 @@ public class PanelAdministrador extends JPanel implements ActionListener {
 
 			VentanaEditarCliente v2 = new VentanaEditarCliente();
 
+
+
 		}
-			if (evento.getSource() == btnEliminarCliente) {
-	
-				VentanaEliminarCliente v3 = new VentanaEliminarCliente();
-	
-			}
-			
-			if (evento.getSource() == btnAgregarLibro) {
+		if (evento.getSource() == btnEliminarCliente) {
 
-		VentanaAgregarLibro v4= new VentanaAgregarLibro();
+			VentanaEliminarCliente v3 = new VentanaEliminarCliente();
 
-			}
-			
-					
+		}
+
+		if (evento.getSource() == btnAgregarLibro) {
+
+			VentanaAgregarLibro v4= new VentanaAgregarLibro();
+
+		}
+if(evento.getSource()==btnListaCliente){
+	VentanaListaCliente vc= new VentanaListaCliente();
+}
+
+
+
 
 
 	}

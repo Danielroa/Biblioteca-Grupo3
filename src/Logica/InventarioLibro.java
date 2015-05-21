@@ -15,7 +15,7 @@ public class InventarioLibro {
 
 	//Agregar al LIBRO 1
 
-	public  void agregarLibro(String isbn,String nombreAutor,String tituloLibro,String anio, int cantidadLibros) throws Exception{
+	public  void agregarLibro(String isbn,String nombreAutor,String tituloLibro,String anio, String cantidadLibros) throws Exception{
 
 		boolean existe = existeLibro(isbn);
 
@@ -116,7 +116,7 @@ public class InventarioLibro {
 		return pos;
 	}
 
-	public void editarLibro(String nombreLibro , String isbn, int cantidadLibros ) {
+	public void editarLibro(String nombreLibro , String isbn, String cantidadLibros ) {
 		boolean encontro = false;
 		for (int i = 0; (i < listaLibro.size() && !encontro); i++) {
 			if(nombreLibro.equals(listaLibro.get(i).getIsbn()))    {

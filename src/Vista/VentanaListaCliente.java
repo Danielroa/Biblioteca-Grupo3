@@ -4,15 +4,15 @@ import java.awt.*;
 import javax.swing.*;
 
 
-public class VentanaEliminarCliente extends JDialog {
-
-	PanelConsultarCliente panel10;
+public class VentanaListaCliente extends JDialog {
+	
+	PanelListaCliente panel11;
 	
 	
-	public VentanaEliminarCliente() {
+	public  VentanaListaCliente() {
 
-		panel10 = new PanelConsultarCliente ();
-		this.add(panel10);
+		panel11 = new PanelListaCliente();
+		this.add(panel11);
 		this.setTitle("Lista Cliente");
 		this.setSize(360, 600);
 		this.setModal(true);

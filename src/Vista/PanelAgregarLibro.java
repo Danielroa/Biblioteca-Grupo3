@@ -392,18 +392,18 @@ public class PanelAgregarLibro extends JPanel implements ActionListener {
 		this.txtAnio.setText(getTxtAnio());
 	}
 
-
-
-	public int getTxtCantidadLibros() {		
-		return Integer.getInteger(txtCantidadLibros.getText());
+	public String getTxtCantidadLibro() {
+		return txtCantidadLibros.getText();
 	}
 
 
 
-	public void setTxtCantidadLibros(int txtCantidadLibros) {		
-		this.txtCantidadLibros.setText(Integer.toString(txtCantidadLibros));
+	public void setTxtCantidadLibro(String CantidadLibro) {
+		this.txtCantidadLibros.setText(getTxtCantidadLibro());
 	}
 
+
+	
 
 
 	public JButton getBtnAgregar() {
@@ -461,17 +461,18 @@ public class PanelAgregarLibro extends JPanel implements ActionListener {
 				setTxtCategoria(null);
 				setTxtAnio(null);
 			
-				setTxtCantidadLibros(0);
+				setTxtCantidadLibro(null);
 				
 
 			}
+			
 			if (evento.getSource() == btnAgregar) {
 				 String isbn = txtIsbn.getText();
 					String nombreAutor = txtNombreAutor.getText();
 					String tituloLibro = txtTituloLibro.getText();
 					String categoria=txtCategoria.getText();
 					String anio = txtAnio.getText(); 
-					int  cantidadLibros = Integer.parseInt(txtCantidadLibros.getText()); 
+					String cantidadLibros = txtCantidadLibros.getText(); 
 					
 					
 					try {

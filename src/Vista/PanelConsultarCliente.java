@@ -11,30 +11,26 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 
 import Logica.Biblioteca;
+import Logica.Cliente;
+import Logica.InventarioCliente;
+import Logica.UsuarioAdministrador;
 
+public class PanelConsultarCliente extends JPanel implements ActionListener {
 
-
-/**
- * 
- * @author MicroSoftware
- * 
- */
-public class PanelEliminarCliente extends JPanel implements ActionListener {
-
+	private JLabel lblInicial;
+	InventarioCliente inventarioCliente = new InventarioCliente(); 
 
 	Biblioteca e = Biblioteca.getInstance();
 
 	JPanel pn = new JPanel();
 	private JLabel lblId;
 	private JTextField txtId;
-	private JButton btnAceptar;
+	private JButton btnBuscar;
 
 
-
-	/**
-	 * Constructor de la Clase PanelEliminarCliente. Donde se modifica su contenido
-	 */
-	public PanelEliminarCliente(){
+	public PanelConsultarCliente(){
+		
+		lblInicial = new JLabel("Introduzca los datos del Cliente");
 		//LOGO YAMANTAKA
 				JLabel Logo = new JLabel(new ImageIcon(getClass().getResource("../imagenes/buscarCliente.png")));
 
@@ -46,6 +42,7 @@ public class PanelEliminarCliente extends JPanel implements ActionListener {
 		Color marron = new Color(127, 52, 45);
 		Color amarillo = new Color(255, 194, 92);
 
+
 		lblId = new JLabel("Id: ");
 		lblId.setForeground(marron);
 		lblId.setFont(os);
@@ -53,16 +50,16 @@ public class PanelEliminarCliente extends JPanel implements ActionListener {
 		txtId = new JTextField(20);
 		txtId.setFont(os);
 
-		btnAceptar = new JButton("Buscar");
-		btnAceptar.addActionListener(this);
-		btnAceptar.setBackground(marron);
-		btnAceptar.setForeground(amarillo);
-		btnAceptar.setFont(osb);
+		btnBuscar = new JButton("Buscar");
+		btnBuscar.addActionListener(this);
+		btnBuscar.setBackground(marron);
+		btnBuscar.setForeground(amarillo);
+		btnBuscar.setFont(osb);
 
 
 		pn.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-
+		
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;
@@ -85,16 +82,15 @@ public class PanelEliminarCliente extends JPanel implements ActionListener {
 		//		gbc2.anchor = GridBagConstraints.WEST;
 		pn.add(txtId, gbc);
 
-		gbc.gridx = 0;
+		gbc.gridx = 1;
 		gbc.gridy = 1;
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
-		gbc.weightx = 0.0;
+		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.insets = new Insets(10, 3, 3, 3);
 		gbc.fill = GridBagConstraints.EAST;
-		//		gbc3.anchor = GridBagConstraints.WEST;
-		pn.add(btnAceptar, gbc);
+		pn.add(btnBuscar, gbc);
 
 		pn.setBackground(null);
 
@@ -125,42 +121,40 @@ public class PanelEliminarCliente extends JPanel implements ActionListener {
 		gbc1.weighty = 1.0;
 		gbc1.insets = new Insets(3, 3, 3, 3);
 		this.add(pn, gbc1);
-
-		
-		
 	}
-
-	/**
-	 * Metodo que retorna el ID del cliente
-	 * @return el ID ingresado en el JTextField
-	 */
+	
+	
+	
 	public String getTxtId() {
 		return txtId.getText();
 	}
-
-	/**
-	 * Metodo que sustituye el ID
-	 * @param txtId valor original ingresado en el JTextField de ID
-	 */
 	public void setTxtId(String txtId) {
 		this.txtId.setText(txtId);
 	}	
 
-
-
-	@Override
-	/**
-	 * Metodo que se encarga de capturar los eventos que ocurran en el JPanel
-	 */
 	public void actionPerformed(ActionEvent evento) {
-//		if (getTxtId().isEmpty()==true) {
-//			JOptionPane.showMessageDialog(this, "Ingrese un ID");				
-//		} else if (JOptionPane.showConfirmDialog(this,
-//				e.confirmarEliminarCliente(getTxtId()),	"Confirmar", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION){
-//			JOptionPane.showMessageDialog(this, "Cliente eliminado exitosamente");
-//			e.eliminarCliente(getTxtId());
-//		}
-//
-//	}
+
+		Biblioteca e = Biblioteca.getInstance();
+		
+		if(evento.getSource()==btnBuscar){
+		
+			VentanaBuscarCliente buscarCliente=new VentanaBuscarCliente();	
+		
+			txtId.setText(getTxtId());
+
+
+			String id = txtId.getText(); 
+			try {
+				inventarioCliente.consultarCliente(getTxtId().toString());
+				
+				
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		
+		}
+		
+		
 	}
 }

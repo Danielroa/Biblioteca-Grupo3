@@ -82,7 +82,7 @@ public class Biblioteca {
 	}
 
 	//metodo agregar libro//
-	public void agregarLibro(String isbn,String nombreAutor,String tituloLibro,String anio, int cantidadLibros) throws Exception{
+	public void agregarLibro(String isbn,String nombreAutor,String tituloLibro,String anio,String cantidadLibros) throws Exception{
 
 		inventarioLibro.agregarLibro(isbn, nombreAutor, tituloLibro, anio, cantidadLibros);
 	}
@@ -110,7 +110,7 @@ public class Biblioteca {
 
 	}
 	//				editar  libro
-	public void editarLibro(String nombreLibro,String isbn,  int cantidadLibros) {
+	public void editarLibro(String nombreLibro,String isbn,  String cantidadLibros) {
 		inventarioLibro.editarLibro(nombreLibro, isbn, cantidadLibros);
 	}
 	//------------------------------SET Y GET-------------------------------------------------------------------------------------------------

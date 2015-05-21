@@ -24,12 +24,12 @@ public class PanelAgregarCliente extends JPanel implements ActionListener {
 
 
 	private JTextArea txtArea;
-	
+
 	private JLabel lblInicial;
 	private JLabel lblNombre;
 	private JLabel lblApellido;
 	private JLabel lblId;
-private JLabel lblNombreUsuario;
+	private JLabel lblNombreUsuario;
 	private JLabel lblPassword;
 
 	private JTextField txtNombre;
@@ -40,16 +40,13 @@ private JLabel lblNombreUsuario;
 	private JTextField txtNombreUsuario;
 	private JTextField txtPassword;
 
-	private JButton btnAgregar, btnCancelar, btnRestablecer;
+	private JButton  btnCancelar, btnRestablecer,btnAgregar;
 	InventarioCliente inventarioCliente = new InventarioCliente(); 
 
-	/**
-	 * Crea un JPanel con los Componentes
-	 */
 
 	public PanelAgregarCliente() {
-		
-		
+
+
 		txtArea= new JTextArea(5,30);
 		try {
 			txtArea.setText(inventarioCliente.mostrarLista());
@@ -65,7 +62,7 @@ private JLabel lblNombreUsuario;
 		txtApellido = new JTextField(10);
 		lblId = new JLabel("ID:");
 		txtId = new JTextField(10);
-		
+
 
 		lblNombreUsuario = new JLabel("Nombre de Usuario:");
 		txtNombreUsuario = new JTextField(10);
@@ -80,15 +77,15 @@ private JLabel lblNombreUsuario;
 		btnRestablecer.addActionListener(this);
 
 		//CREACION Y POSICIONAMIENTO DEL PANEL DE DATOS
-		
-	
+
+
 
 		JPanel panelDatos = new JPanel();
 		panelDatos.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 
-		
-	
+
+
 		gbc.gridx = 0;
 		gbc.gridy = 1;
 		gbc.gridwidth = 1;
@@ -155,10 +152,10 @@ private JLabel lblNombreUsuario;
 		gbc.anchor = GridBagConstraints.WEST;
 		panelDatos.add(txtId, gbc);
 
-		
-	
 
-		
+
+
+
 
 
 		gbc.gridx = 0;
@@ -256,7 +253,7 @@ private JLabel lblNombreUsuario;
 		lblId.setFont(os);
 		txtId.setFont(os);
 
-		
+
 
 		lblNombreUsuario.setFont(os);
 		lblNombreUsuario.setForeground(cTipografia);
@@ -272,9 +269,9 @@ private JLabel lblNombreUsuario;
 		btnRestablecer.setBackground(new Color(127, 52, 45));
 		btnRestablecer.setForeground(new Color(255, 194, 92));
 		btnAgregar.setToolTipText("Confirma la informacion"); //Muestra informacion del elemento con el cursor
-	
+
 	}
-	
+
 	public JLabel getLblInicial() {
 		return lblInicial;
 	}
@@ -346,7 +343,7 @@ private JLabel lblNombreUsuario;
 	public void setTxtId(String txtId) {
 		this.txtId.setText(txtId);
 	}
-	
+
 
 	public String getTxtNombreUsuario() {
 		return txtNombreUsuario.getText();
@@ -390,36 +387,37 @@ private JLabel lblNombreUsuario;
 
 	public void actionPerformed(ActionEvent evento) {
 
-			if (evento.getSource() == btnRestablecer) {
-				setTxtNombre(null);
-				setTxtApellido(null);
-				setTxtId(null);
-				setTxtNombreUsuario(null);
-				setTxtPassword(null);
+		if (evento.getSource() == btnRestablecer) {
+			setTxtNombre(null);
+			setTxtApellido(null);
+			setTxtId(null);
+			setTxtNombreUsuario(null);
+			setTxtPassword(null);
 
+		}
+		if (evento.getSource() == btnAgregar) {
+			String nombre = txtNombre.getText();
+			String apellido = txtApellido.getText();
+			String id = txtId.getText();
+			String usuario =txtNombre.getText();
+			String contrasena = txtPassword.getText(); 
+
+
+			try{
+				Biblioteca b1 = new Biblioteca();
+
+				inventarioCliente.agregarCliente(nombre, apellido, id, usuario, contrasena);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
-			if (evento.getSource() == btnAgregar) {
-				 String nombre = txtNombre.getText();
-					String apellido = txtApellido.getText();
-					String id = txtId.getText();
-					String usuario =txtNombre.getText();
-					String contrasena = txtPassword.getText(); 
-						try {
 
-							Biblioteca b1 = new Biblioteca();
-						
-							inventarioCliente.agregarCliente(nombre, apellido, id, usuario, contrasena);
-						} catch (Exception e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						
-						txtArea.setText(txtNombre.getText()+txtApellido.getText()+txtId.getText()+txtNombreUsuario.getText()+txtPassword.getText() + "\n " + txtArea.getText());
-					
+			txtArea.setText(txtNombre.getText()+txtApellido.getText()+txtId.getText()+txtNombreUsuario.getText()+txtPassword.getText() + "\n " + txtArea.getText());
 
-					JOptionPane.showMessageDialog(this, "El usuario se agrego correctamente");
 
-			}
+			JOptionPane.showMessageDialog(this, "El usuario se agrego correctamente");
+
+		}
 	}
-	}
+}
 

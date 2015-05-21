@@ -22,11 +22,8 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 
 
 	private JLabel lblInicial;
-	private JLabel lblNombreAutor;
 	private JLabel lblTituloLibro;
 	 private JButton btnBuscar;
-
-	private JTextField txtNombreAutor;
 	private JTextField txtTituloLibro;
 	
 	private JLabel lbli, lbln, image;
@@ -42,8 +39,6 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 		JLabel Logo = new JLabel(new ImageIcon(getClass().getResource("../imagenes/BienvenidoCliente.png")));
 
 		lblInicial = new JLabel("Introduzca el libro a buscar");
-		lblNombreAutor = new JLabel("Nombre del autor:");
-		txtNombreAutor = new JTextField(10);
 		lblTituloLibro = new JLabel("titulo del libro:");
 		txtTituloLibro = new JTextField(12);
 		
@@ -57,31 +52,6 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 		JPanel panelDatos = new JPanel();
 		panelDatos.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-
-		
-	
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		gbc.weightx = 0.0;
-		gbc.weighty = 1.0;
-		gbc.insets = new Insets(30, 10, 3, 3);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.anchor = GridBagConstraints.WEST;
-		panelDatos.add(lblNombreAutor, gbc);
-
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		gbc.gridwidth = 1;
-		gbc.gridheight = 1;
-		gbc.weightx = 0.0;
-		gbc.weighty = 1.0;
-		gbc.insets = new Insets(30, 10, 3, 3);
-		gbc.fill = GridBagConstraints.BOTH;
-		gbc.anchor = GridBagConstraints.WEST;
-		panelDatos.add(txtNombreAutor, gbc);
-
 		gbc.gridx = 0;
 		gbc.gridy = 2;
 		gbc.gridwidth = 1;
@@ -144,9 +114,6 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 		Font os = new Font("Open Sans", Font.PLAIN, 14);
 		lblInicial.setFont(osb);
 		lblInicial.setForeground(cTipografia);
-		lblNombreAutor.setFont(os);
-		lblNombreAutor.setForeground(cTipografia);
-		txtNombreAutor.setFont(os);
 		
 		lblTituloLibro.setFont(os);
 		lblTituloLibro.setForeground(cTipografia);
@@ -178,59 +145,7 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 		this.add(panelDatos, gbc);
 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	}
-
-	public JLabel getLblInicial() {
-		return lblInicial;
-	}
-
-	public void setLblInicial(JLabel lblInicial) {
-		this.lblInicial = lblInicial;
-	}
-
-	public JLabel getLblNombre() {
-		return lblNombreAutor;
-	}
-
-	public void setLblNombre(JLabel lblNombre) {
-		this.lblNombreAutor = lblNombre;
-	}
-
-	public JLabel getLblNombreAutor() {
-		return lblNombreAutor;
-	}
-
-	public void setLblNombreAutor(JLabel lblNombreAutor) {
-		this.lblNombreAutor = lblNombreAutor;
-	}
-
-	public JLabel getLblTituloLibro() {
-		return lblTituloLibro;
-	}
-
-	public void setLblTituloLibro(JLabel lblTituloLibro) {
-		this.lblTituloLibro = lblTituloLibro;
-	}
-
-	public JTextField getTxtNombreAutor() {
-		return txtNombreAutor;
-	}
-
-	public void setTxtNombreAutor(JTextField txtNombreAutor) {
-		this.txtNombreAutor = txtNombreAutor;
-	}
-
 	public JTextField getTxtTituloLibro() {
 		return txtTituloLibro;
 	}
@@ -246,15 +161,6 @@ public class PanelConsultarLibro<isEmpty> extends JPanel implements ActionListen
 	public void setLblApellido(JLabel lblApellido) {
 		this.lblTituloLibro = lblApellido;
 	}
-
-	public JTextField getTxtNombre() {
-		return txtNombreAutor;
-	}
-
-	public void setTxtNombre(JTextField txtNombre) {
-		this.txtNombreAutor = txtNombre;
-	}
-
 	
 	public void actionPerformed(ActionEvent evento) {
 

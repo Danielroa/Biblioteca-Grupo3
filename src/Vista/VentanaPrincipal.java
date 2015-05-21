@@ -34,8 +34,8 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 
 
 		setTitle("BIBLIOTECA YAMANTAKA");
-		setSize(700, 210);
-		setResizable(false);
+		setSize(1000, 210);
+		setResizable(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setIconImage(new ImageIcon(getClass().getResource("../imagenes/libro.png")).getImage());
 		setLocationRelativeTo(null);
@@ -83,7 +83,7 @@ public class VentanaPrincipal extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent evento){
 
 
-		Biblioteca e = Biblioteca.getInstance();
+		 	Biblioteca e = Biblioteca.getInstance();
 		UsuarioAdministrador u = new UsuarioAdministrador();
 		if(evento.getSource()==btnIngresar && panel.getRol().getSelectedItem().equals("ADMINISTRADOR") && panel.getTxtUsuario().equals("Daniel") && panel.getTxtContrasena().equals("Daniel")){
 			VentanaAdministrador ventanaAdmin = new VentanaAdministrador (this, true);

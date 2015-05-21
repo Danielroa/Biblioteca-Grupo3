@@ -16,21 +16,12 @@ import Logica.Biblioteca;
 import Logica.Escritor;
 
 
-/**
- * 
- * @author MicroSoftware
- *
- */
 public class VentanaAdministrador extends JFrame implements ActionListener {
 
 		JButton btnSalir;
-		File archivo;
 		private VentanaPrincipal ventanaAdmin;
-		
-		/**
-		 * Constructor de la Clase VentanaDirectorGeneral, donde se le añade un JPanel y se le modifican sus caracteristicas
-		 */
-	public VentanaAdministrador(VentanaPrincipal ventanaAdministrador,boolean modal) {
+	
+		public VentanaAdministrador(VentanaPrincipal ventanaAdministrador,boolean modal) {
 		
 		this.ventanaAdmin=ventanaAdministrador;
 		this.setModal(modal);
@@ -49,7 +40,7 @@ public class VentanaAdministrador extends JFrame implements ActionListener {
 		
 		this.setTitle("Administrador");
 		this.setSize(440, 500);
-		this.setResizable(false);
+		this.setResizable(true);
 		this.setVisible(true);
 		this.setIconImage(new ImageIcon(getClass().getResource("../imagenes/logo-simple.png")).getImage());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
